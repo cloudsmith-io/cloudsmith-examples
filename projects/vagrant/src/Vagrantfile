@@ -1,0 +1,10 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = 'olbat/tiny-core-micro'
+  config.vm.box_version = '0.1.0'
+  config.vm.synced_folder '.', '/vagrant', :disabled => true
+  config.vm.provision 'shell', path: 'bootstrap.sh'
+  config.ssh.shell = 'sh'
+end
