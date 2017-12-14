@@ -1,31 +1,12 @@
-# Cloudsmith API Bindings
+# Cloudsmith Examples
 
-The [Cloudsmith](https://cloudsmith.io) API (Application Programmatic Interface) bindings provide libraries in different languages for accessing the service programmatically. The API is fully compliant with the [OpenAPI 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) and the clients are *generated* using [swagger-codegen-cli](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-cli) from the [Swagger Project](https://swagger.io/).
+This repository provides example projects for all of the [packaging formats supported by Cloudsmith](https://cloudsmith.io/#package-formats). It also demonstrates how to automate upload and download for Cloudsmith, to get you started on your journey to [Automate Everything](https://corp.cloudsmith.io/tao/).
 
-**Please note** that the generated client APIs are intended for developers, and are subject to change as the upstream API evolves over time (especially pre-1.0 releases). If you're looking for something a little more user-friendly, please see the [Cloudsmith CLI](https://github.com/cloudsmith-io/cloudsmith-cli/) application for something that comes pre-baked.
-
-## Release Repository
-
-Releases for each language (where supported) are uploaded to the [Cloudsmith API repository](https://cloudsmith.io/package/ns/cloudsmith/repos/cli/packages/). Support currently exists for the following languages:
-
-- Go
-- Java (maven, sbt, gradle, ivy, ant, etc.)
-- Python
-- Ruby
-
-If you need a different binding, [contact us](https://help.cloudsmith.io/docs/contact-us)!
-
-## Getting Started
-
-TODO - We'll explain how the bindings are generated, and how they work.
 
 ## Contributing
 
 Yes! Please do contribute, this is why we love open source.  Please see `CONTRIBUTING.md` for contribution guidelines when making code changes or raising issues for bug reports, ideas, discussions and/or questions (i.e. help required).
 
-## Releasing
-
-The client APIs are automatically released as part of the build and release process. See the [travis configuration file](https://github.com/cloudsmith-io/cloudsmith-api/blob/master/.travis.yml) for more details.
 
 ## License
 
