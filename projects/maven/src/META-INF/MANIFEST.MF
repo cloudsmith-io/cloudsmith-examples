@@ -1,0 +1,1 @@
+Main-Class: io.cloudsmith.maven.example.Main

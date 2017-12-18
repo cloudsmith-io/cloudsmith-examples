@@ -1,28 +1,91 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cloudsmith</groupId>
-  <artifactId>cloudsmith-example-maven</artifactId>
+
+  <groupId>io.cloudsmith.maven.example</groupId>
+  <artifactId>cloudsmith-maven-example</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
-  <name>cloudsmith-example-maven</name>
-  <url>https://github.com/cloudsmith-io/cloudsmith-example-maven</url>
+  <name>cloudsmith-maven-example</name>
+  <url>https://github.com/cloudsmith-io/cloudsmith-examples/</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.sourceEncoding>
+      UTF-8
+    </project.build.sourceEncoding>
   </properties>
 
+  <build>
+    <extensions>
+      <extension>
+        <groupId>io.cloudsmith.maven.wagon</groupId>
+        <artifactId>cloudsmith-maven-wagon</artifactId>
+        <version>0.1-SNAPSHOT</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>io.cloudsmith.maven.example.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.9</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-         <version>1.1.1</version>
-    </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>cloudsmith.snapshots</id>
+      <url>cloudsmith+https://synthetic.eu.ngrok.io/api/repos/lskillen/test/</url>
+    </repository>
+    <snapshotRepository>
+      <id>cloudsmith.releases</id>
+      <url>cloudsmith+https://synthetic.eu.ngrok.io/api/repos/lskillen/test/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
