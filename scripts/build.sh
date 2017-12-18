@@ -9,11 +9,11 @@ api_url=$2
 build_project() {
   local project=$1
   echo "Building $project project ..."
-  $root_dir/bindings/$project/build.sh
+  $root_dir/projects/$project/build.sh
 }
 
 test -z "$project" && {
-  for I in $root_dir/bindings/*; do
+  for I in $root_dir/projects/*; do
     build_project $I
   done
 } || {

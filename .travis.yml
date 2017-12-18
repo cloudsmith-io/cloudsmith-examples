@@ -1,0 +1,126 @@
+dist: trusty
+sudo: false
+
+cache:
+ directories:
+   - $HOME/.cache
+
+env:
+  global:
+    # CLOUDSMITH_API_KEY=foo
+    - secure:
+
+# TODO(ls): Put script into stages when it is supported:
+# https://github.com/travis-ci/beta-features/issues/28
+stages:
+  - name: reset
+  - name: build
+  - name: check
+
+jobs:
+  include:
+    - stage: reset
+      script:
+        - ./scripts/reset.sh
+      deploy:
+
+    - stage: build
+      language: c
+      env:
+        - PROJECT=debian
+        - STAGE=build
+    - stage: build
+      language: java
+      jdk: oraclejdk8
+      env:
+        - PROJECT=maven
+        - STAGE=build
+    - stage: build
+      language: python
+      python: 2.7
+      install:
+        - pip install tox
+      env:
+        - PROJECT=python
+        - STAGE=build
+    - stage: build
+      language: c
+      env:
+        - PROJECT=redhat
+        - STAGE=build
+    - stage: build
+      language: ruby
+      rvm: 2.2
+      install:
+        - gem install rake
+      gemfile: bindings/ruby/src/Gemfile
+      env:
+        - PROJECT=ruby
+        - STAGE=build
+
+    - stage: check
+      language: c
+      env:
+        - PROJECT=debian
+        - STAGE=check
+      deploy:
+    - stage: check
+      language: java
+      jdk: oraclejdk8
+      env:
+        - PROJECT=maven
+        - STAGE=check
+      deploy:
+    - stage: check
+      language: python
+      python: 2.7
+      install:
+        - pip install tox
+      env:
+        - PROJECT=python
+        - STAGE=check
+      deploy:
+    - stage: check
+      language: c
+      env:
+        - PROJECT=redhat
+        - STAGE=check
+      deploy:
+    - stage: check
+      deploy:
+      language: ruby
+      rvm: 2.2
+      install:
+        - gem install rake
+      gemfile: bindings/ruby/src/Gemfile
+      env:
+        - PROJECT=ruby
+        - STAGE=check
+      deploy:
+
+script:
+  - set -e
+  - if [[ "$STAGE" == "build" ]]; then ./scripts/build.sh $PROJECT; fi
+  - if [[ "$STAGE" == "check" ]]; then ./scripts/check.sh $PROJECT; fi
+
+before_deploy:
+  - pyenv global 2.7.13
+  - pip install --upgrade pip
+  - pip install --upgrade setuptools
+  - pip install --upgrade wheel
+  - pip install cloudsmith-cli
+  - pip install twine
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ./scripts/deploy.sh $PROJECT
+  on:
+    branch: master
+
+notifications:
+  email:
+    on_failure: always
+    on_success: change
+  slack:
+    secure: qm4pgQYyTwTAkH0jTJxwMnvkWDhXEbulGRZUbMZbq2kvDAgnfWmusuvWNw0iGl9ArWpzgJxKKg1+hElKSuLgtTo4YGn78LoqhRTdZdNOSr+4/C8JRFeBZJMJUUqVzqWWdojuX5HogEjR6SmH+sr5KQkGJKaFanWNETQ8aaRSj1omt0dcLRoFQVNd2CXwo6qwRY/8r+a5sLBtOwSY/wtoTnBT6ebtNWctsyYmBClbJsUXlXlwRK7npDFz6S2f+6/0yiXoACz5XZLkwghMsX465rSMep9LVcFARAyZide2b+nkSqPdyFje4T7APhEWNCtXHg1AJSHw3KsQEXmnifJFdgRfTu8v7vM1dnBlTdXaRpavHJOVS0TEIvKdd5vmemNMPVVVMbTcQXwxSkl8oSacGjO8vbK91WGTJI3psoUKp7EP0MYeq9TAZpoZJHpemPg7H5fZdA5UyBFROaU7gsNb96JUDuGQAm+7AmrYx1YFqTjFioHtVF1XPs4elgkHEu1+D6kq9doKMQ+M38yIj1KkRtLjuEFKZ286joeoCrisPaFgsPsAHG46q1pqtIoXjQZKAwIvMbB1K7OuK5KO4oY+ppOZPZi56HLVh6oLzK4T6JA64JBIUo77dzOFO0hy/0riH6iEaOpG4hkt4f1sVBpGyTQxTpY/6Yzf8gQ2oJUvo3M=

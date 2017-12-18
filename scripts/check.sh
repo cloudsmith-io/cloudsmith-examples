@@ -9,12 +9,12 @@ api_url=$2
 check_project() {
   local project=$1
   echo "Checking $project project ..."
-  # $root_dir/bindings/$project/check.sh
+  # $root_dir/projects/$project/check.sh
   # TODO(ls): Pull artifact down and check it for correctness.
 }
 
 test -z "$project" && {
-  for I in $root_dir/bindings/*; do
+  for I in $root_dir/projects/*; do
     check_project $I
   done
 } || {

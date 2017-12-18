@@ -9,11 +9,11 @@ api_url=$2
 deploy_project() {
   local project=$1
   echo "Deploying $project project ..."
-  $root_dir/bindings/$project/deploy.sh
+  $root_dir/projects/$project/deploy.sh
 }
 
 test -z "$project" && {
-  for I in $root_dir/bindings/*; do
+  for I in $root_dir/projects/*; do
     deploy_project $I
   done
 } || {
