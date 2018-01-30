@@ -1,11 +1,31 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
-version = '1.0'
+version = '0.1.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
+}
+
+configurations {
+    deployerJars
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            configuration = configurations.deployerJars
+            repository(id: 'acarson/dev', url: 'cloudsmith+https://api.cloudsmith.io/') {
+                authentication(userName: "$repositoryUser", password: "$repositoryPassword")
+            }
+            pom.version = version
+            pom.artifactId = 'gradle'
+            pom.groupId = 'io.cloudsmith.examples'
+        }
+    }
 }
 
 
@@ -25,5 +45,6 @@ task fatJar(type: Jar) {
 
 
 dependencies {
+    deployerJars "io.cloudsmith.maven.wagon:cloudsmith-maven-wagon:0.1-SNAPSHOT"
     testCompile 'junit:junit:4.12'
 }
