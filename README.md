@@ -2,6 +2,8 @@
 
 This repository provides example projects for all of the [packaging formats supported by Cloudsmith](https://cloudsmith.io/#package-formats). It also demonstrates how to automate upload and download for Cloudsmith, to get you started on your journey to [Automate Everything](https://corp.cloudsmith.io/tao/).
 
+The output of this repository will be uploaded automatically to the public [Cloudsmith examples repository](https://cloudsmith.io/package/ns/cloudsmith/repos/examples).
+
 
 ## License
 
