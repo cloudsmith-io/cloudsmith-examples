@@ -1,50 +1,90 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 
-version = '0.1.0'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
+buildscript {
+  repositories {
+    maven {
+      name = "cloudsmith"
+      url = "https://dl.cloudsmith.io/public/cloudsmith/api/maven"
+    }
+
     mavenLocal()
     mavenCentral()
+  }
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
 }
 
 configurations {
-    deployerJars
+  deployerJars
+}
+
+dependencies {
+  deployerJars 'io.cloudsmith.maven.wagon:cloudsmith-maven-wagon:0.1-SNAPSHOT'
+  testCompile 'junit:junit:4.12'
 }
 
 uploadArchives {
-    repositories {
-        mavenDeployer {
-            configuration = configurations.deployerJars
-            repository(id: 'acarson/dev', url: 'cloudsmith+https://api.cloudsmith.io/') {
-                authentication(userName: "$repositoryUser", password: "$repositoryPassword")
-            }
-            pom.version = version
-            pom.artifactId = 'gradle'
-            pom.groupId = 'io.cloudsmith.examples'
+  repositories {
+    mavenDeployer {
+      configuration = configurations.deployerJars
+
+      repository(url: "cloudsmith+$cloudsmithApiUrl/cloudsmith/examples") {
+        authentication(password: "$cloudsmithApiKey")
+      }
+
+      snapshotRepository(url: "cloudsmith+$cloudsmithApiUrl/cloudsmith/examples") {
+        authentication(password: "$cloudsmithApiKey")
+      }
+
+      pom.project {
+        pom.groupId = 'io.cloudsmith.gradle.example'
+        pom.artifactId = 'cloudsmith-gradle-example'
+        pom.version = version
+        licenses {
+          license {
+            name 'The Apache Software License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            distribution 'repo'
+          }
         }
+      }
     }
+  }
 }
 
-
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'Cloudsmith Gradle Example',
-            'Implementation-Version': version,
-            'Main-Class': 'io.cloudsmith.Main'
-    }
-    from {
-        configurations.compile.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }
-    with jar
+task sourcesJar(type: Jar, dependsOn: classes) {
+  classifier 'sources'
+  from sourceSets.main.allSource
 }
 
+task javadocsJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
 
-dependencies {
-    deployerJars "io.cloudsmith.maven.wagon:cloudsmith-maven-wagon:0.1-SNAPSHOT"
-    testCompile 'junit:junit:4.12'
+artifacts {
+  archives sourcesJar
+  archives javadocsJar
+}
+
+def installer = install.repositories.mavenInstaller
+def deployer  = uploadArchives.repositories.mavenDeployer
+
+install.dependsOn build
+uploadArchives.dependsOn build
+
+task 'publish-snapshot'() {
+  dependsOn uploadArchives
+}
+
+task publish() {
+  dependsOn uploadArchives
 }
