@@ -113,7 +113,7 @@
     <profile>
       <id>default</id>
       <properties>
-        <cloudsmith.api_host>https://api.cloudsmith.io</cloudsmith.api_host>
+        <cloudsmith.api_url>https://api.cloudsmith.io</cloudsmith.api_url>
       </properties>
       <activation>
         <activeByDefault>true</activeByDefault>
