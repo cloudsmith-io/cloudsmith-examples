@@ -15,6 +15,14 @@
     </project.build.sourceEncoding>
   </properties>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>cloudsmith-api</id>
+      <name>Cloudsmith API Releases</name>
+      <url>https://dl.cloudsmith.io/public/cloudsmith/api/maven</url>
+    </pluginRepository>
+  </pluginRepositories> 
+
   <repositories>
     <repository>
       <id>cloudsmith-api</id>
