@@ -20,7 +20,7 @@ configurations {
 }
 
 dependencies {
-  deployerJars 'io.cloudsmith.maven.wagon:cloudsmith-maven-wagon:0.1'
+  deployerJars 'io.cloudsmith.maven.wagon:cloudsmith-maven-wagon:0.2.0'
   testCompile 'junit:junit:4.12'
 }
 
