@@ -21,7 +21,7 @@
       <name>Cloudsmith API Releases</name>
       <url>https://dl.cloudsmith.io/public/cloudsmith/api/maven</url>
     </pluginRepository>
-  </pluginRepositories> 
+  </pluginRepositories>
 
   <repositories>
     <repository>
@@ -29,14 +29,14 @@
       <name>Cloudsmith API Releases</name>
       <url>https://dl.cloudsmith.io/public/cloudsmith/api/maven</url>
     </repository>
-  </repositories> 
+  </repositories>
 
   <build>
     <extensions>
       <extension>
         <groupId>io.cloudsmith.maven.wagon</groupId>
         <artifactId>cloudsmith-maven-wagon</artifactId>
-        <version>0.1</version>
+        <version>0.2.0</version>
       </extension>
     </extensions>
     <plugins>
