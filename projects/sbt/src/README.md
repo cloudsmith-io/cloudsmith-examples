@@ -11,7 +11,9 @@ user =
 password = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Set your password to the api_key (this is a limitation of the sbt-aether-deploy plugin)
+Set your password to your api_key (this is a limitation of the sbt-aether-deploy plugin)
+
+Check out the CLI documentation or your settings on the website to get your API KEY.
 
 ### Setup
 
@@ -25,9 +27,9 @@ publishTo := {
 }
 ```
 
-Setting cloudsmith/scratch to your chosen namespace/repository endpoint that you want to publish to.
+Setting `cloudsmith/scratch` to your chosen namespace/repository endpoint that you want to publish to.
 
-Create a project/plugins.sbt file:
+Create a `project/plugins.sbt` file:
 
 ```
 addSbtPlugin("no.arktekk.sbt" % "aether-deploy" % "0.20.0")
