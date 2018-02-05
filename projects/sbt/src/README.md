@@ -4,7 +4,8 @@
 
 Set your .config/cloudsmith/credentials.ini file with:
 
-```realm = cloudsmith
+```
+realm = cloudsmith
 host = api.cloudsmith.io
 user = 
 password = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -16,7 +17,8 @@ Set your password to the api_key (this is a limitation of the sbt-aether-deploy 
 
 Set your build.sbt file with:
 
-```credentials += Credentials(Path.userHome / ".config" / "cloudsmith" / "credentials.ini")
+```
+credentials += Credentials(Path.userHome / ".config" / "cloudsmith" / "credentials.ini")
 aetherWagons := Seq(aether.WagonWrapper("cloudsmith+https", "io.cloudsmith.maven.wagon.CloudsmithWagon"))
 publishTo := {
     Some("cloudsmith+https" at "cloudsmith+https://api.cloudsmith.io/cloudsmith/scratch") 
@@ -27,7 +29,8 @@ Setting cloudsmith/scratch to your chosen namespace/repository endpoint that you
 
 Create a project/plugins.sbt file:
 
-```addSbtPlugin("no.arktekk.sbt" % "aether-deploy" % "0.20.0")
+```
+addSbtPlugin("no.arktekk.sbt" % "aether-deploy" % "0.20.0")
 libraryDependencies += "io.cloudsmith.maven.wagon" % "cloudsmith-maven-wagon" % "0.2.0" 
 resolvers += Resolver.mavenLocal
 ```
@@ -38,5 +41,6 @@ Note: They have removed the WagonWrapper functionality (we think temporarily) fr
 
 Run the following command to publish to your repository:
 
-```sbt aetherDeploy
+```
+sbt aetherDeploy
 ```
