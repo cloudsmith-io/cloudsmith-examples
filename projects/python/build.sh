@@ -6,5 +6,10 @@ pwd
 
 ls
 
-cd src
+cd projects/$1/src
+
+pwd
+
+ls
+
 python setup.py bdist_wheel --universal
