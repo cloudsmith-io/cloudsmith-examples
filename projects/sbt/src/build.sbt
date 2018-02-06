@@ -14,7 +14,7 @@ lazy val root = (project in file(".")).
     libraryDependencies += scalaTest % Test
   )
 
-credentials += Credentials(Path.userHome / ".config" / "cloudsmith" / "credentials.ini")
+credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
 aetherWagons := Seq(aether.WagonWrapper("cloudsmith+https", "io.cloudsmith.maven.wagon.CloudsmithWagon"))
 
