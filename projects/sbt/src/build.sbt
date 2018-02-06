@@ -8,9 +8,9 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization := "com.example",
       scalaVersion := "2.12.3",
-      version      := "0.1.0-SNAPSHOT"
+      version      := "0.0.1"
     )),
-    name := "Main",
+    name := "cloudsmith-sbt-example",
     libraryDependencies += scalaTest % Test
   )
 
