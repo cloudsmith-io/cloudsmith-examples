@@ -23,7 +23,7 @@ Set your build.sbt file with:
 credentials += Credentials(Path.userHome / ".config" / "cloudsmith" / "credentials.ini")
 aetherWagons := Seq(aether.WagonWrapper("cloudsmith+https", "io.cloudsmith.maven.wagon.CloudsmithWagon"))
 publishTo := {
-    Some("cloudsmith+https" at "cloudsmith+https://api.cloudsmith.io/cloudsmith/scratch") 
+    Some("cloudsmith+https" at "cloudsmith+https://api.cloudsmith.io/cloudsmith/examples") 
 }
 ```
 
