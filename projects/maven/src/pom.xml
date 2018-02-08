@@ -36,7 +36,7 @@
       <extension>
         <groupId>io.cloudsmith.maven.wagon</groupId>
         <artifactId>cloudsmith-maven-wagon</artifactId>
-        <version>LATEST</version>
+        <version>0.2.0</version>
       </extension>
     </extensions>
     <plugins>
