@@ -1,123 +1,143 @@
 dist: trusty
 sudo: false
-
 cache:
- directories:
-   - $HOME/.cache
-
+  directories:
+  - "$HOME/.cache"
 env:
   global:
-    # CLOUDSMITH_API_KEY=foo
-    - secure:
-
-# TODO(ls): Put script into stages when it is supported:
-# https://github.com/travis-ci/beta-features/issues/28
+  - secure:
+  matrix:
+    secure: coYmI9CDAm9cigIBsdxt3sHld6TCafFAzeO/ewWWxf+/cdB7Yq5WJvBVxKsnG2jBl/h7rnZQP3x57ZfJ/F+dHg3fv+Z/LmX5JEdN83MFnX62HpYnBv5FDDT3zd+cagwfJk9m1hNw6qGALqCiuDnDbQ0N6Ql+jCHS3CHX1dxDSmDrAJM6sjqJu3qrP8olSG8RldGQcjnhfh+5r59VWc+djg9ted7Co3/F1iCzNH84zt1PrUyq1gw8nE1toBj+M487THo9ONNhgLTZjjYJiXPyk9zAnh/8qpMSalFKEz0LIR4nU1m50xVutQNny0CbvI149wAv+AvuPgjluuo1UzlNei9wDhgB3TkmKBSztFlJXICs0oMk7vFhFetgk99RpAF4CjAeJ9OJwEUHwbWAWuphiAhTnqERftZIOzN+AyS1ZJP83nb+dkPaMibeMmyy73TcOmVm0cWUrV1ysaf4Ntl1rz0UK51yAaohiJdqtgZw1D254e001Agk0KzbfgsTHBcICIyYaWOTQDFTjoQNelFYMJ488qX4xybGpbH6Vszr0S/qGqLb2l+Ljgt1U7HJhMiOmsWdzeXiFiITJsvl6SuVd+fi9Sy6DD4s841VsFedGn4yketJpUjAr9zGwQFkUWyKRa/L5lt9gEkLTIi0bVLNTpLLXlgPF5xKUieOF4tV/p8=
 stages:
-  - name: reset
-  - name: build
-  - name: check
-
+- name: reset
+- name: build
+- name: check
+- name: deploy
 jobs:
   include:
-    - stage: reset
-      script:
-        - ./scripts/reset.sh
-      deploy:
-
-    - stage: build
-      language: c
-      env:
-        - PROJECT=debian
-        - STAGE=build
-    - stage: build
-      language: java
-      jdk: oraclejdk8
-      env:
-        - PROJECT=maven
-        - STAGE=build
-    - stage: build
-      language: python
-      python: 2.7
-      install:
-        - pip install tox
-      env:
-        - PROJECT=python
-        - STAGE=build
-    - stage: build
-      language: c
-      env:
-        - PROJECT=redhat
-        - STAGE=build
-    - stage: build
-      language: ruby
-      rvm: 2.2
-      install:
-        - gem install rake
-      gemfile: bindings/ruby/src/Gemfile
-      env:
-        - PROJECT=ruby
-        - STAGE=build
-
-    - stage: check
-      language: c
-      env:
-        - PROJECT=debian
-        - STAGE=check
-      deploy:
-    - stage: check
-      language: java
-      jdk: oraclejdk8
-      env:
-        - PROJECT=maven
-        - STAGE=check
-      deploy:
-    - stage: check
-      language: python
-      python: 2.7
-      install:
-        - pip install tox
-      env:
-        - PROJECT=python
-        - STAGE=check
-      deploy:
-    - stage: check
-      language: c
-      env:
-        - PROJECT=redhat
-        - STAGE=check
-      deploy:
-    - stage: check
-      deploy:
-      language: ruby
-      rvm: 2.2
-      install:
-        - gem install rake
-      gemfile: bindings/ruby/src/Gemfile
-      env:
-        - PROJECT=ruby
-        - STAGE=check
-      deploy:
-
+  - stage: reset
+    script:
+    - "./scripts/reset.sh"
+    deploy:
+  - stage: build
+    language: c
+    install:
+    - gem install fpm
+    env:
+    - PROJECT=debian
+    - STAGE=build
+  - stage: build
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=maven
+    - STAGE=build
+  - stage: build
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=gradle
+    - STAGE=build
+  - stage: build
+    language: python
+    python: 2.7
+    install:
+    - pip install tox
+    env:
+    - PROJECT=python
+    - STAGE=build
+  - stage: build
+    language: c
+    env:
+    - PROJECT=redhat
+    - STAGE=build
+  - stage: build
+    language: ruby
+    rvm: 2.2
+    install:
+    - gem install rake
+    gemfile: bindings/ruby/src/Gemfile
+    env:
+    - PROJECT=ruby
+    - STAGE=build
+  - stage: check
+    language: c
+    env:
+    - PROJECT=debian
+    - STAGE=check
+    deploy:
+  - stage: check
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=maven
+    - STAGE=check
+  - stage: check
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=gradle
+    - STAGE=check
+  - stage: check
+    language: python
+    python: 2.7
+    install:
+    - pip install tox
+    env:
+    - PROJECT=python
+    - STAGE=check
+    deploy:
+  - stage: check
+    language: c
+    env:
+    - PROJECT=redhat
+    - STAGE=check
+    deploy:
+  - stage: check
+    deploy:
+    language: ruby
+    rvm: 2.2
+    install:
+    - gem install rake
+    gemfile: bindings/ruby/src/Gemfile
+    env:
+    - PROJECT=ruby
+    - STAGE=check
+  - stage: deploy
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=maven
+    - STAGE=deploy
+  - stage: deploy
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=gradle
+    - STAGE=deploy
+  - stage: deploy
+    language: java
+    jdk: oraclejdk8
+    env:
+    - PROJECT=sbt
+    - STAGE=deploy
 script:
-  - set -e
-  - if [[ "$STAGE" == "build" ]]; then ./scripts/build.sh $PROJECT; fi
-  - if [[ "$STAGE" == "check" ]]; then ./scripts/check.sh $PROJECT; fi
-
+- set -e
+- if [[ "$STAGE" == "build" ]]; then ./scripts/build.sh $PROJECT; fi
+- if [[ "$STAGE" == "check" ]]; then ./scripts/check.sh $PROJECT; fi
 before_deploy:
-  - pyenv global 2.7.13
-  - pip install --upgrade pip
-  - pip install --upgrade setuptools
-  - pip install --upgrade wheel
-  - pip install cloudsmith-cli
-  - pip install twine
-
+- pyenv global 2.7.13
+- pip install --upgrade pip
+- pip install --upgrade setuptools
+- pip install --upgrade wheel
+- pip install cloudsmith-cli
+- pip install twine
 deploy:
   provider: script
   skip_cleanup: true
-  script: ./scripts/deploy.sh $PROJECT
+  script: "./scripts/deploy.sh $PROJECT"
   on:
     branch: master
-
 notifications:
   email:
     on_failure: always

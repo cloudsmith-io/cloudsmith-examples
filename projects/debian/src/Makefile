@@ -4,16 +4,16 @@ sharedir = $(prefix)/share
 
 CFLAGS = --std=c99
 
-all: csm-debian-example
+all: cloudsmith-debian-example
 
-csm-debian-example: example.o
-    gcc -g example.o -o csm-debian-example
+cloudsmith-debian-example: example.o
+	gcc -g example.o -o cloudsmith-debian-example
 
 example.o: example.c
-    gcc -g -c example.c
+	gcc -g -c example.c
 
 clean:
-    rm -f csm-debian-example *.o
+	rm -f cloudsmith-debian-example *.o
 
 install: all
-    install cloudsmith-example-debian $(DESTDIR)$(bindir)
+	install cloudsmith-example-debian $(DESTDIR)$(bindir)

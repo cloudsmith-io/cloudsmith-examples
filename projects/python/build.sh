@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Building Cloudsmith Python Example..."
+echo "Running build.sh"
 
 pwd
 
 ls
 
-cd projects/$1/src
+cd "projects/python/src"
 
 pwd
 
