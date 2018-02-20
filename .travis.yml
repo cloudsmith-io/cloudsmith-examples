@@ -126,7 +126,7 @@ script:
 - if [[ "$STAGE" == "build" ]]; then ./scripts/build.sh $PROJECT; fi
 - if [[ "$STAGE" == "check" ]]; then ./scripts/check.sh $PROJECT; fi
 before_deploy:
-- pyenv global 2.7.13
+- pyenv global 2.7
 - pip install --upgrade pip
 - pip install --upgrade setuptools
 - pip install --upgrade wheel
