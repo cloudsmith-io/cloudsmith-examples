@@ -138,6 +138,7 @@ deploy:
   script: "./scripts/deploy.sh $PROJECT"
   on:
     branch: master
+    condition: $STAGE = "deploy"
 notifications:
   email:
     on_failure: always
