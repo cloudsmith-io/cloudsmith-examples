@@ -6,10 +6,20 @@ pwd
 
 ls
 
-cd "projects/maven/src"
+cd "projects/maven/"
+pwd
+ls
+
+cd "src"
 
 pwd
 
 ls
 
-cloudsmith push maven cloudsmith/examples target/cloudsmith-maven-example-0.0.1-SNAPSHOT.jar --pom-file pom.xml
+
+cd "target"
+pwd
+ls
+
+
+cloudsmith push maven cloudsmith/examples cloudsmith-maven-example-0.0.1-SNAPSHOT.jar --pom-file pom.xml
