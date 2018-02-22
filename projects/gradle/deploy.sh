@@ -1,16 +1,9 @@
 #!/bin/bash
 
-echo "deploy"
-
-pwd
-
-
-ls
+echo "deploying to Cloudsmith with cloudsmith-cli"
 
 cd "projects/gradle/src"
 
-pwd
+cloudsmith push maven cloudsmith/examples build/libs/cloudsmith-gradle-example-0.0.1-SNAPSHOT.jar --pom-file build/poms/pom-default.xml
 
-ls
-
-gradle uploadArchives
+#gradle uploadArchives
