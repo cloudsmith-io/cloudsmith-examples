@@ -42,6 +42,8 @@ jobs:
     - STAGE=build
   - stage: build
     language: c
+    install:
+    - gem install fpm
     env:
     - PROJECT=redhat
     - STAGE=build

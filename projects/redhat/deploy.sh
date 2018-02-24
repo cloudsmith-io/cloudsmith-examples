@@ -8,4 +8,4 @@ pwd
 
 ls
 
-cloudsmith push rpm cloudsmith/examples/el/7 cloudsmith-redhat-example-1.0.0-1.x86_64.rpm
+cloudsmith -k ${CLOUDSMITH_API_KEY} push rpm cloudsmith/examples/el/7 cloudsmith-redhat-example-1.0.0-1.x86_64.rpm

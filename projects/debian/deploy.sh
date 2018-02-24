@@ -8,4 +8,4 @@ pwd
 
 ls
 
-cloudsmith push deb cloudsmith/examples/ubuntu/trusty cloudsmith-debian-example_1.0_amd64.deb
+cloudsmith -k ${CLOUDSMITH_API_KEY} push deb cloudsmith/examples/ubuntu/trusty cloudsmith-debian-example_1.0_amd64.deb
