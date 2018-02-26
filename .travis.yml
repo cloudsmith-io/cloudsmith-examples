@@ -17,47 +17,51 @@ jobs:
   include:
   - stage: build
     language: c
-    install:
-    - gem install fpm
+    before_install:
+      - gem install fpm
     env:
-    - PROJECT=debian
-    - STAGE=build
+      - PROJECT=debian
+      - STAGE=build
   - stage: build
     language: java
     jdk: oraclejdk8
     env:
-    - PROJECT=maven
-    - STAGE=build
+      - PROJECT=maven
+      - STAGE=build
   - stage: build
     language: java
     jdk: oraclejdk8
     env:
-    - PROJECT=gradle
-    - STAGE=build
+      - PROJECT=gradle
+      - STAGE=build
   - stage: build
     language: python
     python: 2.7
-    install:
-    - pip install tox
+    before_install:
+      - pip install tox
     env:
-    - PROJECT=python
-    - STAGE=build
+      - PROJECT=python
+      - STAGE=build
   - stage: build
     language: c
-    install:
-    - gem install fpm
+    addons:
+      apt:
+        packages:
+          - rpm
+    before_install:
+      - gem install fpm
     env:
-    - PROJECT=redhat
-    - STAGE=build
+      - PROJECT=redhat
+      - STAGE=build
   - stage: build
     language: ruby
     rvm: 2.2
-    install:
-    - gem install rake
+    before_install:
+      - gem install rake
     gemfile: bindings/ruby/src/Gemfile
     env:
-    - PROJECT=ruby
-    - STAGE=build
+      - PROJECT=ruby
+      - STAGE=build
 
 script:
   - set -e
