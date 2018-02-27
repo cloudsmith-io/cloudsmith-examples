@@ -16,7 +16,7 @@ cd "/home/travis/.sbt/"
 pwd
 ls
 
-
+cd "${TRAVIS_BUILD_DIR}"
 cd "projects/sbt/src"
 
 sbt 'set credentials += Credentials("cloudsmith", "api.cloudsmith.io", "", "${CLOUDSMITH_API_KEY}")' aetherDeploy
