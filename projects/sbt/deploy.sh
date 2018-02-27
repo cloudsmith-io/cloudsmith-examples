@@ -4,7 +4,7 @@ echo "Deploying Cloudsmith SBT Example"
 pwd
 ls
 
-cat <<EOF >/home/travis/.sbt/credentials
+cat <<EOF >/home/travis/.sbt/.credentials
 realm=cloudsmith
 host=api.cloudsmith.io
 user=
