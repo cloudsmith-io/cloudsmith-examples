@@ -1,20 +1,14 @@
 #!/bin/bash
 
 echo "Deploying Cloudsmith SBT Example"
-pwd
-ls
 
+# create .credentials file
 cat <<EOF >/home/travis/.sbt/.credentials
 realm=cloudsmith
 host=api.cloudsmith.io
 user=
-password=${CLOUDSMITH_API_KEY}
+password=
 EOF
-
-cd "/home/travis/.sbt/"
-
-pwd
-ls
 
 cd "${TRAVIS_BUILD_DIR}"
 cd "projects/sbt/src"
