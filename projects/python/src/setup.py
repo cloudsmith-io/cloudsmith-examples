@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 
 
 setup(
-    name='csm-python-example',
+    name='cloudsmith-python-example',
     version='1.0',
     url='https://cloudsmith.io',
     license='Apache License 2.0',
@@ -19,7 +19,7 @@ setup(
     install_requires=[],
     entry_points={
         'console_scripts': [
-            'csm-python-example=csm_python_example:beawesome',
+            'cloudmsmith-python-example=cloudsmith_python_example:beawesome',
         ],
     },
     keywords=['cloudsmith', 'python', 'example'],

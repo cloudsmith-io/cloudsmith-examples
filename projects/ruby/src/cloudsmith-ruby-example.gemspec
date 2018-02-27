@@ -4,7 +4,7 @@
 $:.push File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = 'csm-ruby-example'
+  s.name        = 'cloudsmith-ruby-example'
   s.version     = '1.0'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Cloudsmith Ltd']
@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9'
 
   s.files         = ['lib/example.rb']
-  s.executables   = ['csm-ruby-example']
+  s.executables   = ['cloudsmith-ruby-example']
   s.require_paths = ['lib']
 end
