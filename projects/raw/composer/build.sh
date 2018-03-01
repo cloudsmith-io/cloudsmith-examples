@@ -3,7 +3,7 @@
 cd "projects/raw/composer/src"
 pwd
 ls
-composer update
+composer update clue/phar-composer
 pwd
 ls
 composer install
