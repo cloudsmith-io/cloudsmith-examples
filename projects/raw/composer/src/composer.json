@@ -19,10 +19,5 @@
     },
     "require-dev": {
         "clue/phar-composer": "1.0.0"
-    },
-    "repositories": [
-        {
-            "packagist.org": false
-        }
-    ]
+    }
 }
