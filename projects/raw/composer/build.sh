@@ -17,5 +17,16 @@ pwd
 ls
 
 cd "-"
+ls
 
 .vendor/bin/phar-composer build
+
+
+echo "trying 2"
+pwd
+ls
+
+./src/vendor/bin/phar-composer build src
+
+pwd
+ls
