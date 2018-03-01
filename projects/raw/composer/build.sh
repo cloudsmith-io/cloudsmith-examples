@@ -8,4 +8,14 @@ pwd
 ls
 composer install
 
+echo "Building phar..."
+pwd
+ls
+
+cd "vendor/bin"
+pwd
+ls
+
+cd "-"
+
 .vendor/bin/phar-composer build
