@@ -74,6 +74,11 @@ jobs:
     env:
       - PROJECT=ruby
       - STAGE=build
+  - stage: build
+    language: php
+    env:
+      - PROJECT=raw/composer
+      - STAGE=build
 
 script:
   - set -e

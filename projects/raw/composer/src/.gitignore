@@ -1,0 +1,4 @@
+vendor/
+*.phar
+*.lock
+*.zip
