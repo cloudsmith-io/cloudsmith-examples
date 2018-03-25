@@ -1,8 +1,12 @@
 #!/bin/bash
 
-echo "... deploying to Cloudsmith with cloudsmith-cli"
+echo "Deploying to Cloudsmith"
 
-cd "projects/maven/src"
+cd "projects/leiningen/src"
 
-mvn deploy
-#cloudsmith push maven cloudsmith/examples target/cloudsmith-maven-example-0.0.1-SNAPSHOT.jar --pom-file pom.xml
+cd "cloudsmith-leiningen-example"
+
+pwd
+ls
+
+lein deploy

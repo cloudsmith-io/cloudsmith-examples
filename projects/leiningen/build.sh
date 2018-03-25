@@ -9,4 +9,4 @@ lein compile
 
 lein uberjar
 
-java -jar target/cloudsmith-leiningen-example-0.1.0-SNAPSHOT-standalone.jar
+java -jar target/cloudsmith-leiningen-example-1.0.0-SNAPSHOT-standalone.jar
