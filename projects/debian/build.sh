@@ -4,4 +4,4 @@ cd "projects/debian/src"
 
 make
 
-fpm -f -s dir -t deb -n cloudsmith-debian-example-${TRAVIS_BUILD_NUMBER} -v 1.0 .
+fpm -f -s dir -t deb -n cloudsmith-debian-example -v 1.0.${TRAVIS_BUILD_NUMBER} .
