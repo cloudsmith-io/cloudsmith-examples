@@ -3,10 +3,11 @@ from __future__ import absolute_import, print_function
 
 from setuptools import find_packages, setup
 
+import version
 
 setup(
     name='cloudsmith-python-example',
-    version='1.0',
+    version=version.__version__,
     url='https://cloudsmith.io',
     license='Apache License 2.0',
     author='Cloudsmith Ltd',

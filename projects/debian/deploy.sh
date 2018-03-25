@@ -8,4 +8,4 @@ pwd
 
 ls
 
-cloudsmith push deb cloudsmith/examples/ubuntu/trusty cloudsmith-debian-example-${TRAVIS_BUILD_NUMBER}_1.0_amd64.deb
+cloudsmith push deb cloudsmith/examples/ubuntu/trusty cloudsmith-debian-example_1.0.${TRAVIS_BUILD_NUMBER}_amd64.deb

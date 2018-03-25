@@ -8,6 +8,4 @@ pwd
 
 ls
 
-mv cloudsmith-ruby-example-1.0.gem cloudsmith-ruby-example-${TRAVIS_BUILD_NUMBER}-1.0.gem
-
-cloudsmith push ruby cloudsmith/examples cloudsmith-ruby-example-${TRAVIS_BUILD_NUMBER}-1.0.gem
+cloudsmith push ruby cloudsmith/examples cloudsmith-ruby-example-1.${TRAVIS_BUILD_NUMBER}.0.gem

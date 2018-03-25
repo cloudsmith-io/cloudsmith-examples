@@ -2,11 +2,13 @@
 
 echo "Running build.sh"
 
-pwd
-
-ls
-
 cd "projects/python/src"
+
+cd "version"
+
+echo "__version__ = '1.0.${TRAVIS_BUILD_NUMBER}'" > __init__.py
+
+cd "-"
 
 pwd
 
