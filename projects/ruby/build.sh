@@ -5,7 +5,7 @@ cd "projects/ruby/src"
 cd "lib/util"
 
 echo "module Cloudsmith
-  VERSION = '1.${TRAVIS_BUILD_NUMBER}.0'
+  VERSION = '1.0.${TRAVIS_BUILD_NUMBER}'
 end" > version.rb
 
 cd "-"
