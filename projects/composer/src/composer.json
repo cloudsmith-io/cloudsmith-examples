@@ -1,0 +1,103 @@
+{
+    "name": "cloudsmith/cloudsmith-composer-example",
+    "description": "Cloudsmith Composer Example",
+    "version": "1.2.3-alpha2",
+    "type": "library",
+    "keywords": [ "cloudsmith, composer, example" ],
+    "homepage": "https://cloudsmith.io/",
+    "readme": "https://help.cloudsmith.io/",
+    "time": "2018-06-01 01:02:03",
+    "license": [
+      "MIT",
+      "GPL-3.0-or-later"
+    ],
+    "authors": [
+        {
+            "name": "Alan Carson",
+            "email": "acarson@cloudsmith.io",
+            "homepage": "https://cloudsmith.io/package",
+            "role": "General Dogsbody"
+        }
+    ],
+    "support": {
+      "email": "support@cloudsmith.io",
+      "issues": "https://cloudsmith.io",
+      "forum": "https://cloudsmith.io",
+      "wiki": "https://cloudsmith.io",
+      "irc": "https://cloudsmith.io",
+      "source": "https://cloudsmith.io",
+      "docs": "https://cloudsmith.io",
+      "rss": "https://cloudsmith.io"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "clue/phar-composer": "1.0.0"
+    },
+    "conflict": {
+      "cloudsmith/broken-composer-example": ">1.3.7"
+    },
+    "replace": {
+      "cloudsmith/old-composer-example": "*"
+    },
+    "provide": {
+      "cloudsmith/composer-core-lib": "1.0.1"
+    },
+    "suggest": {
+      "monolog/monolog": "Allows more advanced logging of the application flow"
+    },
+    "autoload": {
+      "classmap": ["src/", "lib/"],
+      "files": ["cloudsmith-composer-example/index.php"],
+      "exclude-from-classmap": ["/Tests/", "/test/", "/tests/"]
+    },
+    "include-path": ["lib/"],
+    "target-dir": "Symfony/Component/Yaml",
+    "repositories": [
+       {
+           "type": "package",
+           "package": {
+               "name": "smarty/smarty",
+               "version": "3.1.7",
+               "dist": {
+                   "url": "https://www.smarty.net/files/Smarty-3.1.7.zip",
+                   "type": "zip"
+               },
+               "source": {
+                   "url": "https://smarty-php.googlecode.com/svn/",
+                   "type": "svn",
+                   "reference": "tags/Smarty_3_1_7/distribution/"
+               }
+           }
+       }
+    ],
+    "scripts": {
+        "post-update-cmd": [
+        ],
+        "post-package-install": [
+        ],
+        "post-install-cmd": [
+        ],
+        "post-autoload-dump": [
+        ],
+        "post-create-project-cmd": [
+        ]
+    },
+    "config": {
+        "preferred-install": {
+            "my-organization/stable-package": "dist",
+            "my-organization/*": "source",
+            "partner-organization/*": "auto",
+            "*": "dist"
+        }
+    },
+    "bin": ["bin/my-script", "bin/my-other-script"],
+    "archive": {
+        "exclude": ["/foo/bar", "baz", "/*.test", "!/foo/bar/baz"]
+    },
+    "abandoned": false,
+    "non-feature-branches": ["latest-.*"]
+}

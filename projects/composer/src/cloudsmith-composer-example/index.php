@@ -1,6 +1,6 @@
 <?php
 
-namespace cloudsmith-composer-example
+namespace cloudsmith;
 
 class Main
 {

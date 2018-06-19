@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "projects/raw/composer/src"
+cd "projects/composer/src"
 pwd
 ls
 composer update clue/phar-composer
