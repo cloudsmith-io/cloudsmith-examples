@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Deploying to Cloudsmith"
+echo "Deploying to Cloudsmith ..."
 
 cd "projects/composer/src"
 

@@ -1,32 +1,12 @@
 #!/bin/bash
 
 cd "projects/composer/src"
-pwd
-ls
-composer update clue/phar-composer
-pwd
-ls
-composer install
 
-echo "Building phar..."
-pwd
-ls
+echo "Setting up composer ..."
+test -d "vendor" && { composer update; } || { composer install; }
 
-cd "vendor/bin"
-pwd
-ls
+echo "Generating composer.json ..."
+./composer.json.sh
 
-cd "-"
-ls
-
-.vendor/bin/phar-composer build
-
-
-echo "trying 2"
-pwd
-ls
-
-./src/vendor/bin/phar-composer build src
-
-pwd
-ls
+echo "Building composer phar ..."
+./vendor/bin/phar-composer build

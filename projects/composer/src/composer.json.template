@@ -1,12 +1,12 @@
 {
   "name": "cloudsmith/cloudsmith-composer-example",
   "description": "Cloudsmith Composer Example",
-  "version": "0.1.0-dev1",
+  "version": "$COMPOSER_VERSION",
   "type": "library",
   "keywords": [ "cloudsmith", "composer", "example" ],
   "homepage": "https://cloudsmith.io/",
   "readme": "https://help.cloudsmith.io/",
-  "time": "2018-07-23 14:23:54",
+  "time": "$COMPOSER_TIME",
   "license": [
     "MIT",
     "GPL-3.0-or-later"
