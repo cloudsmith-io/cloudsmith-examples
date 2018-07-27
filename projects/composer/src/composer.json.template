@@ -30,7 +30,7 @@
     "issues": "https://cloudsmith.io#issues",
     "forum": "https://cloudsmith.io#forum",
     "wiki": "https://cloudsmith.io#wiki",
-    "irc": "https://cloudsmith.io#irc",
+    "irc": "irc://irc.cloudsmith.io/composer",
     "source": "https://cloudsmith.io#source",
     "docs": "https://cloudsmith.io#docs",
     "rss": "https://cloudsmith.io#rss"
