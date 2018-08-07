@@ -83,6 +83,11 @@ jobs:
     env:
       - PROJECT=composer
       - STAGE=build
+  - stage: build
+    language: node_js
+    env:
+      - PROJECT=npm
+      - STAGE=build
 
 script:
   - set -e
