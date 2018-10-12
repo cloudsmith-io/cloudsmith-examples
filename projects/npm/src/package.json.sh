@@ -5,5 +5,5 @@ self_dir=$(dirname $self)
 
 . ${self_dir}/../variables.sh
 
-# Replace all variables in composer.json.template with values
-cat $self_dir/composer.json.template | envsubst > $self_dir/composer.json
+# Replace all variables in package.json.template with values
+cat $self_dir/package.json.template | envsubst > $self_dir/package.json
