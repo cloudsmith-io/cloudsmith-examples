@@ -79,7 +79,9 @@
     "lodash"
   ],
   "files": [
-    "README.md"
+    "README.md",
+    "bin/*",
+    "lib/*"
   ],
   "os": [
     "darwin",
