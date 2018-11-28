@@ -1,0 +1,7 @@
+*.class
+*.log
+
+#sbt specific
+target/
+project/project/
+project/target/
