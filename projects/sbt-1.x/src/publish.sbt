@@ -21,7 +21,7 @@ packageOptions += {
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
-publishTo := Some("Cloudsmith API" at "http://" + cloudsmithApiUrl + "/cloudsmith/examples")
+publishTo := Some("Cloudsmith API" at "https://" + cloudsmithApiUrl + "/cloudsmith/examples")
 
 pomIncludeRepository := { x => false }
 
