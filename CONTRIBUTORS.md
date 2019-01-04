@@ -1,6 +1,7 @@
 # Maintainers
 
 Alan Carson ([@alancarson](https://github.com/alancarson)) - [Cloudsmith Ltd](https://cloudsmith.io)
+
 Lee Skillen ([@lskillen](https://github.com/lskillen)) - [Cloudsmith Ltd](https://cloudsmith.io)
 
 
