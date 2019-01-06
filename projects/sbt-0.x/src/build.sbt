@@ -1,7 +1,8 @@
 import aether.AetherKeys._
 import Dependencies._
 
-val cloudsmithApiUrl = "api.cloudsmith.io"
+//val cloudsmithApiUrl = "api.cloudsmith.io"
+val cloudsmithApiUrl = "synthetic.eu.ngrok.io/api/v1"
 
 lazy val root = (project in file(".")).
   settings(
@@ -14,8 +15,10 @@ lazy val root = (project in file(".")).
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
+overridePublishBothSettings
+
 aetherWagons := Seq(aether.WagonWrapper("cloudsmith+https", "io.cloudsmith.maven.wagon.CloudsmithWagon"))
 
 publishTo := {
-    Some("cloudsmith+https" at s"cloudsmith+https://${cloudsmithApiUrl}/cloudsmith/examples")
+    Some("cloudsmith+https" at s"cloudsmith+https://${cloudsmithApiUrl}/cloudsmith/test")
 }

@@ -4,7 +4,7 @@
 
   <groupId>io.cloudsmith.maven.example</groupId>
   <artifactId>cloudsmith-maven-example</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>cloudsmith-maven-example</name>
   <url>https://github.com/cloudsmith-io/cloudsmith-examples/</url>
@@ -32,33 +32,40 @@
   </repositories>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>io.cloudsmith.maven.wagon</groupId>
+        <artifactId>cloudsmith-maven-wagon</artifactId>
+        <version>0.2.0</version>
+      </extension>
+    </extensions>
     <plugins>
-      <!-- <plugin>                                        -->
-      <!--   <groupId>org.apache.maven.plugins</groupId>   -->
-      <!--   <artifactId>maven-source-plugin</artifactId>  -->
-      <!--   <version>3.0.1</version>                      -->
-      <!--   <executions>                                  -->
-      <!--     <execution>                                 -->
-      <!--       <id>attach-sources</id>                   -->
-      <!--       <goals>                                   -->
-      <!--         <goal>jar</goal>                        -->
-      <!--       </goals>                                  -->
-      <!--     </execution>                                -->
-      <!--   </executions>                                 -->
-      <!-- </plugin>                                       -->
-      <!-- <plugin>                                        -->
-      <!--   <groupId>org.apache.maven.plugins</groupId>   -->
-      <!--   <artifactId>maven-javadoc-plugin</artifactId> -->
-      <!--   <version>3.0.0</version>                      -->
-      <!--   <executions>                                  -->
-      <!--     <execution>                                 -->
-      <!--       <id>attach-javadocs</id>                  -->
-      <!--       <goals>                                   -->
-      <!--         <goal>jar</goal>                        -->
-      <!--       </goals>                                  -->
-      <!--     </execution>                                -->
-      <!--   </executions>                                 -->
-      <!-- </plugin>                                       -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
@@ -114,7 +121,7 @@
     <profile>
       <id>default</id>
       <properties>
-        <cloudsmith.api_url>synthetic.eu.ngrok.io/api/maven</cloudsmith.api_url>
+        <cloudsmith.api_url>https://api.cloudsmith.io</cloudsmith.api_url>
       </properties>
       <activation>
         <activeByDefault>true</activeByDefault>
@@ -124,12 +131,12 @@
 
   <distributionManagement>
     <repository>
-      <id>cloudsmith-synthetic</id>
-      <url>https://${cloudsmith.api_url}/cloudsmith/test</url>
+      <id>cloudsmith-releases</id>
+      <url>cloudsmith+${cloudsmith.api_url}/cloudsmith/examples</url>
     </repository>
     <snapshotRepository>
-      <id>cloudsmith-synthetic</id>
-      <url>https://${cloudsmith.api_url}/cloudsmith/test</url>
+      <id>cloudsmith-snapshots</id>
+      <url>cloudsmith+${cloudsmith.api_url}/cloudsmith/examples</url>
     </snapshotRepository>
   </distributionManagement>
 </project>

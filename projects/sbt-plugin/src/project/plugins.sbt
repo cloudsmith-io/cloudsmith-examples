@@ -5,5 +5,3 @@
 //crossPaths := true
 
 //addSbtPlugin("com.armoredthings" % "sbt-hades" % "0.0.6")
-resolvers += "cloudsmith" at "https://dl.cloudsmith.io/public/cloudsmith/examples/maven"
-addSbtPlugin("io.cloudsmith" % "cloudsmith-sbt-plugin" % "0.1.4")

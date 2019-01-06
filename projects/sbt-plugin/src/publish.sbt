@@ -2,11 +2,11 @@
 
 //logLevel := Level.Debug
 
-val cloudsmithApiUrl = "synthetic.eu.ngrok.io/api/maven"
+//val cloudsmithApiUrl = "synthetic.eu.ngrok.io/api/maven"
 //val cloudsmithApiUrl = "maven-synthetic.cloudsmith.io"
-//val cloudsmithApiUrl = "maven.cloudsmith.io"
+val cloudsmithApiUrl = "maven.cloudsmith.io"
 
-//sbtPlugin := true
+sbtPlugin := true
 
 packageOptions += {
   val title = name.value
@@ -30,7 +30,7 @@ packageOptions += {
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
 //publishTo := Some("Cloudsmith API" at "http://" + cloudsmithApiUrl + "/armoredthings/test")
-publishTo := { Some("Cloudsmith API" at "https://" + cloudsmithApiUrl + "/cloudsmith/test") }
+publishTo := { Some("Cloudsmith API" at "https://" + cloudsmithApiUrl + "/cloudsmith/examples") }
 
 // publishMavenStyle := true
 // crossPaths := false
