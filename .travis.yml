@@ -94,6 +94,11 @@ jobs:
     env:
       - PROJECT=npm
       - STAGE=build
+  - stage: build
+    language: c
+    env:
+      - PROJECT=helm
+      - STAGE=build
 
 script:
   - set -e
