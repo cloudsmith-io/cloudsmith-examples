@@ -50,7 +50,7 @@ jobs:
     language: java
     jdk: oraclejdk8
     env:
-      - PROJECT=sbt-1.0
+      - PROJECT=sbt-1.x
       - STAGE=build
   - stage: build
     language: python
