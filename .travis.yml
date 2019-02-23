@@ -82,10 +82,6 @@ jobs:
       - STAGE=build
   - stage: build
     language: php
-    addons:
-      apt:
-        packages:
-          - php-xml
     env:
       - PROJECT=composer
       - STAGE=build
