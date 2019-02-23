@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "projects/sbt/src"
+cd "projects/sbt-1.x/src"
 
 sbt compile
 sbt package
