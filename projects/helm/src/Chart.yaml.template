@@ -1,0 +1,5 @@
+apiVersion: v1
+appVersion: "1.0"
+description: A Cloudsmith example Helm chart for Kubernetes
+name: cloudsmith-helm-example
+version: $HELM_CHART_VERSION
