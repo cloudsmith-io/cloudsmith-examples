@@ -6,4 +6,4 @@ cd "src/"
 
 # publish jar using the cloudsmith CLI
 cloudsmith push maven $CLOUDSMITH_REPOSITORY --pom-file pom.xml \
-    target/cloudsmith-leiningen-example-1.0.$BUILD_TIMESTAMP.jar
+    target/cloudsmith-leiningen-example-1.0.$BUILD_NUMBER.jar

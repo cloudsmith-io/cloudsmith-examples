@@ -23,7 +23,7 @@ orbs:
           - run:
               name: Prepare build environment
               command: |
-                echo "export BUILD_TIMESTAMP=`date +%%s`" >> $BASH_ENV
+                echo "export BUILD_NUMBER=`/home/circleci/repo/bin/generate-build-number`" >> $BASH_ENV
                 echo "export PATH=/home/circleci/.local/bin:$PATH" >> $BASH_ENV
                 test -f prepare.sh || exit 0
                 ./prepare.sh

@@ -40,13 +40,13 @@ CLOUDSMITH_REPOSITORY=your-name-or-org/your-repository
 To run a single example invoke the `run-example` script, passing the name of the example:
 
 ```bash
-$ ./run-example python-native
+$ ./bin/run-example python-native
 ```
 
 To run all examples use the `run-examples` script, passing no arguments:
 
 ```bash
-$ ./run-examples
+$ ./bin/run-examples
 ```
 
 ## Structure
