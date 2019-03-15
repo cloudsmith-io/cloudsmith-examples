@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'example'
+puts CloudsmithExample.be_awesome

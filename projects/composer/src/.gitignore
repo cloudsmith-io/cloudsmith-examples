@@ -1,5 +1,0 @@
-vendor/
-composer.json
-*.phar
-*.lock
-*.zip

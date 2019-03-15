@@ -1,3 +1,0 @@
-export COMPOSER_VERSION="${COMPOSER_VERSION:-0.1.${TRAVIS_BUILD_NUMBER:-0}-dev1}"
-export COMPOSER_TIME="${COMPOSER_TIME:-$(date +'%Y-%m-%d %H:%M:%S')}"
-

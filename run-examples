@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eou pipefail
+
+
+ls -1 examples | sort | while read x; do
+    ./run-example $x
+done
