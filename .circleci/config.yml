@@ -1,0 +1,110 @@
+version: 2.1
+
+orbs:
+  cloudsmith_examples:
+    jobs:
+      run:
+        parameters:
+          example_name:
+            description: Name of the example to run
+            type: string
+          docker_image:
+            description: Repotag for the Docker image in which to run the example
+            type: string
+        executor:
+            name: cloudsmith_executor
+            docker_image: <<parameters.docker_image>>
+        working_directory: ~/repo/examples/<<parameters.example_name>>
+        steps:
+          - checkout:
+              path: ~/repo
+          - setup_remote_docker:
+              docker_layer_caching: true
+          - run:
+              name: Prepare build environment
+              command: |
+                echo "export BUILD_TIMESTAMP=`date +%%s`" >> $BASH_ENV
+                echo "export PATH=/home/circleci/.local/bin:$PATH" >> $BASH_ENV
+                test -f prepare.sh || exit 0
+                ./prepare.sh
+          - run:
+              name: Build example package
+              command: |
+                test -f build.sh || exit 0
+                ./build.sh
+          - run:
+              name: Publish package to Cloudsmith
+              command: |
+                test -f deploy.sh || exit 0
+                ./deploy.sh
+    executors:
+      cloudsmith_executor:
+        docker:
+          - image: <<parameters.docker_image>>
+        parameters:
+          docker_image:
+            type: string
+
+workflows:
+  commit:
+    jobs:
+      - cloudsmith_examples/run:
+          name: composer-cli
+          example_name: composer-cli
+          docker_image: circleci/php:7.3.3
+      - cloudsmith_examples/run:
+          name: deb-cli
+          example_name: deb-cli
+          docker_image: circleci/ruby:2.6.1
+      - cloudsmith_examples/run:
+          name: leiningen-cli
+          example_name: leiningen-cli
+          docker_image: circleci/clojure:lein-2.9.1
+      - cloudsmith_examples/run:
+          name: leiningen-native
+          example_name: leiningen-native
+          docker_image: circleci/clojure:lein-2.9.1
+      - cloudsmith_examples/run:
+          name: maven-cli
+          example_name: maven-cli
+          docker_image: circleci/openjdk:11.0.2
+      - cloudsmith_examples/run:
+          name: maven-native
+          example_name: maven-native
+          docker_image: circleci/openjdk:11.0.2
+      - cloudsmith_examples/run:
+          name: npm-cli
+          example_name: npm-cli
+          docker_image: circleci/node:11.11.0
+      - cloudsmith_examples/run:
+          name: npm-native
+          example_name: npm-native
+          docker_image: circleci/node:11.11.0
+      - cloudsmith_examples/run:
+          name: python-cli
+          example_name: python-cli
+          docker_image: circleci/python:3.7.2
+      - cloudsmith_examples/run:
+          name: python-native
+          example_name: python-native
+          docker_image: circleci/python:3.7.2
+      - cloudsmith_examples/run:
+          name: rpm-cli
+          example_name: rpm-cli
+          docker_image: circleci/ruby:2.6.1
+      - cloudsmith_examples/run:
+          name: ruby-cli
+          example_name: ruby-cli
+          docker_image: circleci/ruby:2.6.1
+      - cloudsmith_examples/run:
+          name: ruby-native
+          example_name: ruby-native
+          docker_image: circleci/ruby:2.6.1
+      - cloudsmith_examples/run:
+          name: sbt-cli
+          example_name: sbt-cli
+          docker_image: circleci/openjdk:11.0.2
+      - cloudsmith_examples/run:
+          name: sbt-native
+          example_name: sbt-native
+          docker_image: circleci/openjdk:11.0.2
