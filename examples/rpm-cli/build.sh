@@ -8,4 +8,4 @@ cd "src/"
 make
 
 # package compiled artifacts for distribution
-fpm -f -s dir -t rpm -v 1.0.$BUILD_TIMESTAMP -n cloudsmith-redhat-example .
+fpm -f -s dir -t rpm -v 1.0.$BUILD_NUMBER -n cloudsmith-redhat-example .

@@ -17,4 +17,4 @@ curl -sL $PHAR_COMPOSER_URL > $PHAR_COMPOSER_PATH
 chmod 755 $PHAR_COMPOSER_PATH
 
 # replace "__EXAMPLE_VERSION__" with real version number as required
-grep -rl __EXAMPLE_VERSION__ src/ | xargs sed -i "s/__EXAMPLE_VERSION__/1.0.$BUILD_TIMESTAMP/g"
+grep -rl __EXAMPLE_VERSION__ src/ | xargs sed -i "s/__EXAMPLE_VERSION__/1.0.$BUILD_NUMBER/g"

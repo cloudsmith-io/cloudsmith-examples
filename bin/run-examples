@@ -3,5 +3,5 @@ set -eou pipefail
 
 
 ls -1 examples | sort | while read x; do
-    ./run-example $x
+    ./bin/run-example $x
 done

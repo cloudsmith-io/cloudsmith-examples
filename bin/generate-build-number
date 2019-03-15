@@ -1,0 +1,6 @@
+#!/bin/bash
+
+TIMESTAMP=`date +%s`
+JOB_NUMBER=${CIRCLE_BUILD_NUM:-1}
+
+echo "${TIMESTAMP}${JOB_NUMBER}"
