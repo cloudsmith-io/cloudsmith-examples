@@ -11,6 +11,10 @@ orbs:
           docker_image:
             description: Repotag for the Docker image in which to run the example
             type: string
+          requires_docker:
+            description: Does the job require the ability to build and run containers?
+            type: boolean
+            default: false
         executor:
             name: cloudsmith_executor
             docker_image: <<parameters.docker_image>>
@@ -18,8 +22,11 @@ orbs:
         steps:
           - checkout:
               path: ~/repo
-          - setup_remote_docker:
-              docker_layer_caching: true
+          - when:
+              condition: <<parameters.requires_docker>>
+              steps:
+                - setup_remote_docker:
+                    docker_layer_caching: true
           - run:
               name: Prepare build environment
               command: |
@@ -48,6 +55,11 @@ orbs:
 workflows:
   commit:
     jobs:
+      - cloudsmith_examples/run:
+          name: alpine-cli
+          example_name: alpine-cli
+          docker_image: circleci/python:3.7.2
+          requires_docker: true
       - cloudsmith_examples/run:
           name: composer-cli
           example_name: composer-cli
