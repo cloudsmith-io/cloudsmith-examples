@@ -1,0 +1,16 @@
+# Contributor: Cloudsmith <support@cloudsmith.io>
+# Maintainer: Cloudsmith <support@cloudsmith.io>
+pkgname=cloudsmith-alpine-example
+pkgver=__EXAMPLE_VERSION__
+pkgrel=0
+pkgdesc="Be Awesome. Automate Everything."
+url="https://github.com/cloudsmith-io/cloudsmith-examples"
+arch="all"
+license="Apache-2.0"
+source="cloudsmith"
+builddir="$srcdir/"
+
+package() {
+	cd "$builddir"
+	install -Dm755 cloudsmith "$pkgdir"/usr/bin/cloudsmith
+}
