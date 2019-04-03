@@ -1,8 +1,8 @@
 # Maintainers
 
-Alan Carson ([@alancarson](https://github.com/alancarson)) - [Cloudsmith Ltd](https://cloudsmith.io)
-Lee Skillen ([@lskillen](https://github.com/lskillen)) - [Cloudsmith Ltd](https://cloudsmith.io)
-Paddy Carey ([@paddycarey](https://github.com/paddycarey)) - [Cloudsmith Ltd](https://cloudsmith.io)
+- Alan Carson ([@alancarson](https://github.com/alancarson)) - [Cloudsmith Ltd](https://cloudsmith.io)
+- Lee Skillen ([@lskillen](https://github.com/lskillen)) - [Cloudsmith Ltd](https://cloudsmith.io)
+- Paddy Carey ([@paddycarey](https://github.com/paddycarey)) - [Cloudsmith Ltd](https://cloudsmith.io)
 
 
 # Contributors
