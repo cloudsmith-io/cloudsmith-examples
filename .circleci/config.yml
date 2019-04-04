@@ -69,6 +69,10 @@ workflows:
           example_name: deb-cli
           docker_image: circleci/ruby:2.6.1
       - cloudsmith_examples/run:
+          name: helm-cli
+          example_name: helm-cli
+          docker_image: circleci/python:3.7.2
+      - cloudsmith_examples/run:
           name: leiningen-cli
           example_name: leiningen-cli
           docker_image: circleci/clojure:lein-2.9.1
