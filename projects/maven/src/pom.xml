@@ -4,7 +4,7 @@
 
   <groupId>io.cloudsmith.maven.example</groupId>
   <artifactId>cloudsmith-maven-example</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.3</version>
   <packaging>jar</packaging>
   <name>cloudsmith-maven-example</name>
   <url>https://github.com/cloudsmith-io/cloudsmith-examples/</url>
@@ -125,11 +125,11 @@
   <distributionManagement>
     <repository>
       <id>cloudsmith-synthetic</id>
-      <url>https://${cloudsmith.api_url}/cloudsmith/test</url>
+      <url>https://${cloudsmith.api_url}/lskillen/republish</url>
     </repository>
     <snapshotRepository>
       <id>cloudsmith-synthetic</id>
-      <url>https://${cloudsmith.api_url}/cloudsmith/test</url>
+      <url>https://${cloudsmith.api_url}/lskillen/republish</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
