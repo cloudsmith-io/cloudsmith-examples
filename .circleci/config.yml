@@ -41,6 +41,7 @@ orbs:
                 ./build.sh
           - run:
               name: Publish package to Cloudsmith
+              no_output_timeout: 1800
               command: |
                 test -f deploy.sh || exit 0
                 ./deploy.sh
