@@ -1,0 +1,5 @@
+[package]
+name = "cloudsmith-example-crate"
+version = "__EXAMPLE_VERSION__"
+authors = ["Cloudsmith Ltd <support@cloudsmith.io>"]
+edition = "2018"
