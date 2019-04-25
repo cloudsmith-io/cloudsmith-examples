@@ -61,6 +61,10 @@ workflows:
           docker_image: circleci/python:3.7.2
           requires_docker: true
       - cloudsmith_examples/run:
+          name: cargo-cli
+          example_name: cargo-cli
+          docker_image: circleci/rust:1.34.0
+      - cloudsmith_examples/run:
           name: composer-cli
           example_name: composer-cli
           docker_image: circleci/php:7.3.3
