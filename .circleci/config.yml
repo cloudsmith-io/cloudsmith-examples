@@ -45,6 +45,11 @@ orbs:
               command: |
                 test -f deploy.sh || exit 0
                 ./deploy.sh
+          - run:
+              name: Install package from Cloudsmith
+              command: |
+                test -f install.sh || exit 0
+                ./install.sh
     executors:
       cloudsmith_executor:
         docker:
