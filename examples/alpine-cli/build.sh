@@ -5,7 +5,7 @@ set -eou pipefail
 # to build one ourselves in which to run the build. This adds an extra level of
 # indirection that isn't great, but it works. In future we can build out own
 # base image and use that directly with Circle.
-docker build -t alpine-example-build .
+_docker build -t alpine-example-build .
 
 
 # build .apk for distribution
@@ -21,8 +21,8 @@ function build_script {
     echo "$USAGE"
 }
 
-build_script | docker run -i --name build-$BUILD_NUMBER alpine-example-build sh
+build_script | _docker run -i --name build-$BUILD_NUMBER alpine-example-build sh
 
 # since we build inside a container we need to explicitly copy the artifacts out
 # after building
-docker cp build-$BUILD_NUMBER:/home/circleci/packages/build/x86_64/ .
+_docker cp build-$BUILD_NUMBER:/home/circleci/packages/build/x86_64/ .

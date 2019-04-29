@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$CLOUDSMITH_RUNNING_LOCALLY" = "yes" ]; then
+    exec sudo docker $@
+else
+    exec docker $@
+fi

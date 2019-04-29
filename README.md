@@ -59,6 +59,7 @@ Inside each example directory is a consistent structure:
 - `prepare.sh`: A script which performs any setup or initialisation required to build and publish the example package.
 - `build.sh`: A script which builds the example package into an artifact that can be published to Cloudsmith.
 - `deploy.sh`: A script that publishes the built artifact(s) to Cloudsmith.
+- `install.sh`: A script which sets up a new environment and installs the recently published package from Cloudsmith.
 
 The scripts `prepare.sh` and `deploy.sh` are optional. If not present they will be skipped.
 
