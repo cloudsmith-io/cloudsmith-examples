@@ -32,6 +32,8 @@ orbs:
               command: |
                 echo "export BUILD_NUMBER=`/home/circleci/repo/bin/generate-build-number`" >> $BASH_ENV
                 echo "export PATH=/home/circleci/.local/bin:$PATH" >> $BASH_ENV
+                mkdir -p /home/circleci/.local/bin/
+                ln -s /home/circleci/repo/bin/_docker /home/circleci/.local/bin/
                 test -f prepare.sh || exit 0
                 ./prepare.sh
           - run:
