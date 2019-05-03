@@ -75,7 +75,7 @@ workflows:
       - cloudsmith_examples/run:
           name: composer-cli
           example_name: composer-cli
-          docker_image: circleci/php:7.3.3
+          docker_image: circleci/php:7.3.4
       - cloudsmith_examples/run:
           name: deb-cli
           example_name: deb-cli
