@@ -16,7 +16,7 @@ setup(
     py_modules=["cloudsmith_python_example"],
     entry_points={
         "console_scripts": [
-            "cloudmsmith-python-example=cloudsmith_python_example:be_awesome"
+            "cloudsmith-python-example=cloudsmith_python_example:be_awesome"
         ]
     },
     keywords=["cloudsmith", "python", "example"],
