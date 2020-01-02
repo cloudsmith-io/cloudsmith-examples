@@ -77,6 +77,10 @@ workflows:
           example_name: composer-cli
           docker_image: circleci/php:7.3.4
       - cloudsmith_examples/run:
+          name: dart-cli
+          example_name: dart-cli
+          docker_image: circleci/android:api-29-node
+      - cloudsmith_examples/run:
           name: deb-cli
           example_name: deb-cli
           docker_image: circleci/ruby:2.6.1

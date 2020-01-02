@@ -1,0 +1,8 @@
+name: "cloudsmith_dart_example"
+description: "Cloudsmith: Be Awesome. Automate Everything."
+version: "__EXAMPLE_VERSION__"
+homepage: "https://cloudsmith.io"
+documentation: "https://cloudsmith.io"
+author: "Cloudsmith <support@cloudsmith.io>"
+environment:
+  sdk: '>=2.0.0 <3.0.0'
