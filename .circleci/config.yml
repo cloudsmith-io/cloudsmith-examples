@@ -96,10 +96,10 @@ workflows:
           name: leiningen-native
           example_name: leiningen-native
           docker_image: circleci/clojure:lein-2.9.1
-      - cloudsmith_examples/run:
-          name: maven-cli
-          example_name: maven-cli
-          docker_image: circleci/openjdk:11.0.2
+    #   - cloudsmith_examples/run:
+    #       name: maven-cli
+    #       example_name: maven-cli
+    #       docker_image: circleci/openjdk:11.0.2
       - cloudsmith_examples/run:
           name: maven-native
           example_name: maven-native
@@ -136,10 +136,10 @@ workflows:
           name: ruby-native
           example_name: ruby-native
           docker_image: circleci/ruby:2.6.1
-      - cloudsmith_examples/run:
-          name: sbt-cli
-          example_name: sbt-cli
-          docker_image: circleci/openjdk:11.0.2
+    #   - cloudsmith_examples/run:
+    #       name: sbt-cli
+    #       example_name: sbt-cli
+    #       docker_image: circleci/openjdk:11.0.2
       - cloudsmith_examples/run:
           name: sbt-native
           example_name: sbt-native
