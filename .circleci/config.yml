@@ -121,6 +121,10 @@ workflows:
           example_name: python-native
           docker_image: circleci/python:3.7.2
       - cloudsmith_examples/run:
+          name: python-poetry
+          example_name: python-poetry
+          docker_image: circleci/python:3.7.2
+      - cloudsmith_examples/run:
           name: raw-cli
           example_name: raw-cli
           docker_image: circleci/python:3.7.2

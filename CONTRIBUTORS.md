@@ -9,4 +9,5 @@
 
 The following contributors (in alphabetical order) are held in eternal high esteem and gratitude for their glorious contributions to the project:
 
-** YOUR NAME HERE ** (yup, that's right, impress your friends and be first!)
+- Chris McEvoy ([@chrisimcevoy](https://github.com/chrisimcevoy)) - [RiverStone](https://www.rsml.co.uk/)
+- Kyle Harrison ([@apoclyps](https://github.com/apoclyps)) - [Slice](https://slicelife.com/)
