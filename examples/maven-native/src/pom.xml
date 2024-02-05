@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.cloudsmith.maven.example</groupId>
-  <artifactId>cloudsmith-maven-example</artifactId>
+  <artifactId>cloudsmith-maven-native-example</artifactId>
   <version>__EXAMPLE_VERSION__</version>
   <packaging>jar</packaging>
 

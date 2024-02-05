@@ -1,5 +1,5 @@
 {
-  "name": "@csm/cloudsmith-npm-example",
+  "name": "@csm/cloudsmith-npm-cli-example",
   "version": "__EXAMPLE_VERSION__",
   "engines": {
     "node": ">= 0.1"

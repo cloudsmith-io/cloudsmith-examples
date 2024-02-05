@@ -7,3 +7,5 @@ cd "src/"
 # build jar for example package
 sbt makePom
 sbt package
+sbt packageSrc
+sbt packageDoc

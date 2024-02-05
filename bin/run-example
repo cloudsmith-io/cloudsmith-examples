@@ -19,8 +19,8 @@ echo
 
 circleci config process .circleci/config.yml > $WORK_DIR/config.yml
 circleci local execute --config $WORK_DIR/config.yml \
-    --job $1 \
+    $1 \
     --env CLOUDSMITH_REPOSITORY=$CLOUDSMITH_REPOSITORY \
     --env CLOUDSMITH_API_KEY=$CLOUDSMITH_API_KEY \
     --env CLOUDSMITH_REPOSITORY_IS_PRIVATE=$CLOUDSMITH_REPOSITORY_IS_PRIVATE \
-    --env CLOUDSMITH_RUNNING_LOCALLY="yes"
+    --env CLOUDSMITH_RUNNING_LOCALLY="yes" 

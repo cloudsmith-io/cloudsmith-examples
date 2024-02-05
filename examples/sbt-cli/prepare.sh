@@ -4,7 +4,7 @@ set -eou pipefail
 
 # install Python and pip
 sudo apt-get update
-sudo apt-get install -y python python-pip
+sudo apt-get install -y python3 python3-pip
 
 # install the cloudsmith CLI
 pip install --user cloudsmith-cli

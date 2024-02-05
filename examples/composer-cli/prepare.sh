@@ -4,10 +4,10 @@ set -eou pipefail
 
 # install Python and pip
 sudo apt-get update
-sudo apt-get install -y python python-pip
+sudo apt install -y python3 python3-pip
 
 # install the cloudsmith CLI
-pip install --user cloudsmith-cli
+pip3 install --user cloudsmith-cli
 
 # download and install phar-composer
 PHAR_COMPOSER_URL=https://github.com/clue/phar-composer/releases/download/v1.0.0/phar-composer.phar

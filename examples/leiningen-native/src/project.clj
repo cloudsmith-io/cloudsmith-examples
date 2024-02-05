@@ -1,4 +1,4 @@
-(defproject cloudsmith-leiningen-example "__EXAMPLE_VERSION__"
+(defproject cloudsmith-leiningen-native-example "__EXAMPLE_VERSION__"
   :description "Cloudsmith Leiningen Example"
   :url "https://cloudsmith.io"
   :license {:name "Eclipse Public License"
