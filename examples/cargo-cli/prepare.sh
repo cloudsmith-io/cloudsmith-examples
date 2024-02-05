@@ -1,10 +1,7 @@
 #!/bin/bash
 set -eou pipefail
 
-lsb_release -a
-
 # install Python and pip
-sudo apt-get update
 sudo apt-get update
 sudo apt install -y python3 python3-pip
 

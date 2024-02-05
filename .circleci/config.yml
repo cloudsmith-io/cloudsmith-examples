@@ -63,11 +63,10 @@ orbs:
 workflows:
   commit:
     jobs:
-    # TODO: alpine example needs fixed - docker container captures chip architecture of host machine
       - cloudsmith_examples/run:
           name: alpine-cli
           example_name: alpine-cli
-          docker_image: circleci/python:3.7.2
+          docker_image: cimg/python:3.12.1
           requires_docker: true
       - cloudsmith_examples/run:
           name: cargo-cli
@@ -88,7 +87,7 @@ workflows:
       - cloudsmith_examples/run:
           name: helm-cli
           example_name: helm-cli
-          docker_image: circleci/python:3.7.2
+          docker_image: cimg/python:3.12.1
       - cloudsmith_examples/run:
           name: leiningen-cli
           example_name: leiningen-cli
@@ -96,7 +95,7 @@ workflows:
       - cloudsmith_examples/run:
           name: leiningen-native
           example_name: leiningen-native
-          docker_image: circleci/clojure:lein-2.9.1
+          docker_image: cimg/clojure:1.11.1-browsers
       - cloudsmith_examples/run:
           name: maven-cli
           example_name: maven-cli
@@ -104,7 +103,7 @@ workflows:
       - cloudsmith_examples/run:
           name: maven-native
           example_name: maven-native
-          docker_image: circleci/openjdk:11.0.2
+          docker_image: cimg/openjdk:21.0.2
       - cloudsmith_examples/run:
           name: npm-cli
           example_name: npm-cli
@@ -112,11 +111,11 @@ workflows:
       - cloudsmith_examples/run:
           name: npm-native
           example_name: npm-native
-          docker_image: circleci/node:11.11.0
+          docker_image: cimg/node:21.6.1
       - cloudsmith_examples/run:
           name: python-cli
           example_name: python-cli
-          docker_image: circleci/python:3.7.2
+          docker_image: cimg/python:3.10.11
       - cloudsmith_examples/run:
           name: python-native
           example_name: python-native
@@ -136,7 +135,7 @@ workflows:
       - cloudsmith_examples/run:
           name: ruby-native
           example_name: ruby-native
-          docker_image: circleci/ruby:2.6.1
+          docker_image: cimg/ruby:3.0
       - cloudsmith_examples/run:
           name: sbt-cli
           example_name: sbt-cli

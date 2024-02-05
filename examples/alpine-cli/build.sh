@@ -5,7 +5,6 @@ set -eou pipefail
 # to build one ourselves in which to run the build. This adds an extra level of
 # indirection that isn't great, but it works. In future we can build out own
 # base image and use that directly with Circle.
-
 _docker build -t alpine-example-build .
 
 # build .apk for distribution
