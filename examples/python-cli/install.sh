@@ -10,7 +10,7 @@ fi
 
 
 # install package from Cloudsmith using pip
-pip install --user cloudsmith-python-example==1.0.$BUILD_NUMBER
+pip install --user cloudsmith-python-cli-example==1.0.$BUILD_NUMBER
 
 # run the installed package
 cloudsmith-python-example

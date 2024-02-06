@@ -26,6 +26,7 @@ The examples are configured using environment variables. You can set these manua
 ```bash
 $ export CLOUDSMITH_API_KEY=YOUR_API_KEY_HERE
 $ export CLOUDSMITH_REPOSITORY=your-name-or-org/your-repository
+$ export CLOUDSMITH_REPOSITORY_IS_PRIVATE=yes/no
 ```
 
 Or use a tool like [forego](https://github.com/ddollar/forego) (`forego run ...`) to load them from a `.env` file in the root of the examples repository:
@@ -33,6 +34,7 @@ Or use a tool like [forego](https://github.com/ddollar/forego) (`forego run ...`
 ```bash
 CLOUDSMITH_API_KEY=YOUR_API_KEY_HERE
 CLOUDSMITH_REPOSITORY=your-name-or-org/your-repository
+CLOUDSMITH_REPOSITORY_IS_PRIVATE=yes/no
 ```
 
 ### Running the examples

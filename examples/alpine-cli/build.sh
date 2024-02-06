@@ -7,7 +7,6 @@ set -eou pipefail
 # base image and use that directly with Circle.
 _docker build -t alpine-example-build .
 
-
 # build .apk for distribution
 function build_script {
     USAGE='set -eou pipefail
@@ -25,4 +24,4 @@ build_script | _docker run -i --name build-$BUILD_NUMBER alpine-example-build sh
 
 # since we build inside a container we need to explicitly copy the artifacts out
 # after building
-_docker cp build-$BUILD_NUMBER:/home/circleci/packages/build/x86_64/ .
+_docker cp -a build-$BUILD_NUMBER:/home/circleci/packages/build/. .

@@ -6,7 +6,7 @@ from setuptools import setup
 
 
 setup(
-    name="cloudsmith-python-example",
+    name="cloudsmith-python-cli-example",
     version="__EXAMPLE_VERSION__",
     url="https://cloudsmith.io",
     license="Apache License 2.0",

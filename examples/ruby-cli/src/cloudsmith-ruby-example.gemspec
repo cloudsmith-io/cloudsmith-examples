@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'util/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'cloudsmith-ruby-example'
+  s.name        = 'cloudsmith-ruby-cli-example'
   s.version     = Cloudsmith::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Cloudsmith Ltd']
