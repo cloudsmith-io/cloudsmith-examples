@@ -30,10 +30,10 @@ orbs:
           - run:
               name: Prepare build environment
               command: |
-                echo "export BUILD_NUMBER=`/home/circleci/repo/bin/generate-build-number`" >> $BASH_ENV
-                echo 'export PATH=/home/circleci/.local/bin:$PATH' >> $BASH_ENV
-                mkdir -p /home/circleci/.local/bin/
-                ln -s /home/circleci/repo/bin/_docker /home/circleci/.local/bin/
+                echo "export BUILD_NUMBER=`$HOME/repo/bin/generate-build-number`" >> $BASH_ENV
+                echo 'export PATH=$HOME/.local/bin:$PATH' >> $BASH_ENV
+                mkdir -p $HOME/.local/bin/
+                ln -s $HOME/repo/bin/_docker $HOME/.local/bin/
                 test -f prepare.sh || exit 0
                 ./prepare.sh
           - run:
@@ -144,3 +144,7 @@ workflows:
           name: sbt-native
           example_name: sbt-native
           docker_image: cimg/openjdk:11.0.13
+      - cloudsmith_examples/run:
+          name: nuget-native
+          example_name: nuget-native
+          docker_image: mcr.microsoft.com/dotnet/sdk:9.0
