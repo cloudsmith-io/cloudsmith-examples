@@ -148,3 +148,7 @@ workflows:
           name: nuget-native
           example_name: nuget-native
           docker_image: mcr.microsoft.com/dotnet/sdk:9.0
+      - cloudsmith_examples/run:
+          name: golang-cli
+          example_name: golang-cli
+          docker_image: cimg/go:1.21
