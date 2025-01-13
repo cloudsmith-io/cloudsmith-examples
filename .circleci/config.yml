@@ -152,3 +152,7 @@ workflows:
           name: golang-cli
           example_name: golang-cli
           docker_image: cimg/go:1.21
+      - cloudsmith_examples/run:
+          name: terraform-cli
+          example_name: terraform-cli
+          docker_image: cimg/deploy:2024.11
