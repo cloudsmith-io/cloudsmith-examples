@@ -63,16 +63,16 @@
   ],
   "homepage": "https://github.com/cloudsmith-io/cloudsmith-examples#readme",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.21"
   },
   "optionalDependencies": {
-    "lodash": "4.17.11"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
-    "lodash": ">=0.6.0"
+    "lodash": ">=4.17.21"
   },
   "peerDependencies": {
-    "lodash": ">=0.6.0"
+    "lodash": ">=4.17.21"
   },
   "bundledDependencies": [
     "lodash"
